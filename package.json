@@ -1,16 +1,19 @@
 {
-    "name": "react-native-animation-video",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "name": "@wcisco17/react-native-animation-video",
+    "version": "1.0.1",
+    "description": "## Getting started",
+    "main": "index.jsx",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "keywords": [
         "react-native"
     ],
+    "jest": {
+        "preset": "jest-react-native"
+    },
     "author": "Williams Sissoko",
-    "license": "",
+    "license": "ISC",
     "peerDependencies": {
         "react-native": "^0.41.2",
         "react-native-windows": "0.41.0-rc.1"
@@ -19,6 +22,19 @@
         "@types/jest": "^24.0.21",
         "@types/react": "^16.9.11",
         "@types/react-native": "^0.60.22",
-        "@types/react-test-renderer": "^16.9.1"
-    }
+        "@types/react-test-renderer": "^16.9.1",
+        "babel-jest": "^24.9.0",
+        "babel-preset-react-native": "^4.0.1",
+        "jest": "^24.9.0",
+        "jest-react-native": "^18.0.0",
+        "react-test-renderer": "^16.11.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wcisco17/react-native-animation-video.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wcisco17/react-native-animation-video/issues"
+    },
+    "homepage": "https://github.com/wcisco17/react-native-animation-video#readme"
 }
