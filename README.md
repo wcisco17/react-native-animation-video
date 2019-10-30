@@ -3,11 +3,7 @@
 
 ## Getting started
 
-`$ npm install react-native-animation-video --save`
-
-### Mostly automatic installation
-
-`$ react-native link react-native-animation-video`
+`$ npm install @wcisco17/react-native-animation-video --save`
 
 ### Manual installation
 
