@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import * as React from 'react';
-import { Text, View } from 'react-native';
+import PropTypes from "prop-types"
+import * as React from "react"
+import { Text, View } from "react-native"
 
 class RNAnimationVideo extends React.PureComponent {
     static propTypes() {
@@ -9,17 +9,17 @@ class RNAnimationVideo extends React.PureComponent {
         }
     }
     render() {
-        const { name } = this.props;
+        const { name } = this.props
         return (
             <View>
-                <Text>{name}</Text>
+                <Text> {name} </Text>
             </View>
         )
     }
 }
 
 RNAnimationVideo.propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.string
 }
 
-export default RNAnimationVideo;
+export default RNAnimationVideo

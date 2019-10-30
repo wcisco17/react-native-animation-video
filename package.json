@@ -2,7 +2,7 @@
     "name": "@wcisco17/react-native-animation-video",
     "version": "1.0.1",
     "description": "## Getting started",
-    "main": "index.jsx",
+    "main": "index.js",
     "scripts": {
         "test": "jest"
     },
