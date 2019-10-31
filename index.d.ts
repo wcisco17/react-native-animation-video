@@ -7,7 +7,7 @@ interface App {
     views: string;
     businessTitle: string;
     location: string;
-    source: ImageRequireSource | ImageRequireSource | any;
+    source: any;
     videoUrl: string | any;
 }
 export type Apps = App[];
