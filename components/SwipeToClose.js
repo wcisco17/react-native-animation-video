@@ -11,7 +11,7 @@ const {
     Value, interpolate, Extrapolate, cond, and, eq, or,
 } = Animated;
 
-export default class SpringToClose extends React.PureComponent {
+export default class SwipeToClose extends React.PureComponent {
     static propTypes() {
         return {
             y: typeof Value,
@@ -63,7 +63,7 @@ export default class SpringToClose extends React.PureComponent {
     }
 };
 
-SpringToClose.propTypes = {
+SwipeToClose.propTypes = {
     y: typeof Value,
     opacity: typeof Value,
     scale: SpringValue,
