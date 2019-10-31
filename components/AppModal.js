@@ -6,7 +6,7 @@ import { clockRunning } from 'react-native-redash';
 
 import AppThumbnail from './AppThumbnail';
 import { createValue, spring, springBack } from './Spring';
-import SwipeToClose from './SpringToClose';
+import SpringToClose from './SpringToClose';
 
 const {
     Value, cond, greaterThan, sub, greaterOrEq, round, add, divide, call, eq,
@@ -66,7 +66,7 @@ export default class AppModal extends React.PureComponent {
             isIcon
         } = this.props
         return (
-            <SwipeToClose y={(translationY)} opacity={opacity.value} {...{ scale }}>
+            <SpringToClose y={(translationY)} opacity={opacity.value} {...{ scale }}>
                 <Animated.Code>
                     {
                         () => cond(shouldClose,
@@ -98,7 +98,7 @@ export default class AppModal extends React.PureComponent {
                         isIcon={isIcon}
                     />
                 </Animated.View>
-            </SwipeToClose>
+            </SpringToClose>
         );
     }
 };
