@@ -6,7 +6,7 @@ import { clockRunning } from 'react-native-redash';
 
 import AppThumbnail from './AppThumbnail';
 import { createValue, spring, springBack } from './Spring';
-import SwipeToClose from './SwipeToClose';
+import SwipeToClose from './SpringToClose';
 
 const {
     Value, cond, greaterThan, sub, greaterOrEq, round, add, divide, call, eq,

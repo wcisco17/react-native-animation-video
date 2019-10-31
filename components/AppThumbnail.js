@@ -1,21 +1,14 @@
+import { EvilIcons } from '@expo/vector-icons';
+import { Video } from 'expo-av';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import Animated from 'react-native-reanimated';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 class AppThumbnail extends React.PureComponent {
     static propTypes() {
         return {
-            app: {
-                id: PropTypes.number.isRequired,
-                name: PropTypes.string.isRequired,
-                views: PropTypes.string.isRequired,
-                businessTitle: PropTypes.string.isRequired,
-                location: PropTypes.string.isRequired,
-                source: PropTypes.string.isRequired,
-                videoUrl: PropTypes.string.isRequired,
-            },
-            borderRadius: typeof Animated.Value,
+            app: PropTypes.any.isRequired,
+            borderRadius: PropTypes.any,
             shouldPlay: PropTypes.bool.isRequired,
             showOverlay: PropTypes.bool.isRequired,
             isIcon: PropTypes.bool.isRequired,
@@ -100,16 +93,8 @@ class AppThumbnail extends React.PureComponent {
 export default AppThumbnail;
 
 AppThumbnail.propTypes = {
-    app: {
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        views: PropTypes.string.isRequired,
-        businessTitle: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        source: PropTypes.string.isRequired,
-        videoUrl: PropTypes.string.isRequired,
-    },
-    borderRadius: typeof Animated.Value,
+    app: PropTypes.any.isRequired,
+    borderRadius: PropTypes.any,
     shouldPlay: PropTypes.bool.isRequired,
     showOverlay: PropTypes.bool.isRequired,
     isIcon: PropTypes.bool.isRequired,

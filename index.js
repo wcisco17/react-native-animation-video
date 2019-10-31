@@ -2,12 +2,16 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import { SafeAreaView, ScrollView } from 'react-native';
 import Animated from 'react-native-reanimated';
+
+import App from './components/App';
+import AppModal from './components/AppModal';
 
 const { Value } = Animated;
 
 class RNAnimationVideo extends React.PureComponent {
-    activeAppId = new Value(-1);
+    static activeAppId = new Value(-1);
     state = {
         ready: false,
         modal: null,

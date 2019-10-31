@@ -20,15 +20,7 @@ export default class App extends React.PureComponent {
 
     static propTypes() {
         return {
-            app: {
-                id: PropTypes.number.isRequired,
-                name: PropTypes.string.isRequired,
-                views: PropTypes.string.isRequired,
-                businessTitle: PropTypes.string.isRequired,
-                location: PropTypes.string.isRequired,
-                source: PropTypes.string.isRequired,
-                videoUrl: PropTypes.string.isRequired,
-            },
+            app: PropTypes.func.isRequired,
             open: PropTypes.func.isRequired,
             activeAppId: typeof Animated.Value,
             isIcon: PropTypes.bool.isRequired,
@@ -81,15 +73,7 @@ const styles = StyleSheet.create({
 });
 
 App.propTypes = {
-    app: {
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        views: PropTypes.string.isRequired,
-        businessTitle: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        source: PropTypes.string.isRequired,
-        videoUrl: PropTypes.string.isRequired,
-    },
+    app: PropTypes.func.isRequired,
     open: PropTypes.func.isRequired,
     activeAppId: typeof Animated.Value,
     isIcon: PropTypes.bool.isRequired,
