@@ -11,7 +11,7 @@ import AppModal from './components/AppModal';
 const { Value } = Animated;
 
 class RNAnimationVideo extends React.PureComponent {
-    static activeAppId = new Value(-1);
+    activeAppId = new Value(-1);
     static propTypes() {
         return {
             isIcon: PropTypes.bool.isRequired,

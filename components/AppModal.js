@@ -18,13 +18,20 @@ export default class AppModal extends React.PureComponent {
     static propTypes() {
         return {
             app: PropTypes.any.isRequired,
-            position: PropTypes.any.isRequired,
+            position: PropTypes.func.isRequired,
             close: PropTypes.any.isRequired,
             isIcon: PropTypes.any.isRequired,
         }
     }
 
     render() {
+        const {
+            app,
+            position,
+            close,
+            isIcon
+        } = this.props
+
         const width = createValue(position.width);
         const height = createValue(position.height);
         const x = createValue(position.x);
@@ -44,13 +51,6 @@ export default class AppModal extends React.PureComponent {
             paddingBottom: 45,
             paddingLeft: 25
         };
-
-        const {
-            app,
-            position,
-            close,
-            isIcon
-        } = this.props
         return (
             <SwipeToClose y={(translationY)} opacity={opacity.value} {...{ scale }}>
                 <Animated.Code>
@@ -91,7 +91,7 @@ export default class AppModal extends React.PureComponent {
 
 AppModal.propTypes = {
     app: PropTypes.any.isRequired,
-    position: PropTypes.any.isRequired,
+    position: PropTypes.func.isRequired,
     close: PropTypes.any.isRequired,
     isIcon: PropTypes.any.isRequired,
 }
