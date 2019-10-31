@@ -12,17 +12,18 @@ const { Value } = Animated;
 
 class RNAnimationVideo extends React.PureComponent {
     static activeAppId = new Value(-1);
-    state = {
-        ready: false,
-        modal: null,
-    };
-
     static propTypes() {
         return {
             isIcon: PropTypes.bool.isRequired,
             items: PropTypes.array.isRequired,
         }
     }
+
+    state = {
+        ready: false,
+        modal: null,
+    };
+
 
     async componentDidMount() {
         const { items } = this.props;

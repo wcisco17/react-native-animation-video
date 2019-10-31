@@ -17,23 +17,10 @@ export const { height: globalHeight } = Dimensions.get('screen');
 export default class AppModal extends React.PureComponent {
     static propTypes() {
         return {
-            app: {
-                id: PropTypes.number.isRequired,
-                name: PropTypes.string.isRequired,
-                views: PropTypes.string.isRequired,
-                businessTitle: PropTypes.string.isRequired,
-                location: PropTypes.string.isRequired,
-                source: PropTypes.string.isRequired,
-                videoUrl: PropTypes.string.isRequired,
-            },
-            position: {
-                x: PropTypes.number.isRequired,
-                y: PropTypes.number.isRequired,
-                width: PropTypes.number.isRequired,
-                height: PropTypes.number.isRequired,
-            },
-            close: PropTypes.func.isRequired,
-            isIcon: PropTypes.bool.isRequired,
+            app: PropTypes.any.isRequired,
+            position: PropTypes.any.isRequired,
+            close: PropTypes.any.isRequired,
+            isIcon: PropTypes.any.isRequired,
         }
     }
 
@@ -45,7 +32,6 @@ export default class AppModal extends React.PureComponent {
         const scale = createValue(1);
         const borderRadius = createValue(8);
         const opacity = createValue(0);
-        const textOpacity = cond(greaterThan((width.value), add(position.width, divide(sub(wWidth, position.width), 2))), 1, 0);
         const translationY = new Value(0);
         const shouldClose = greaterOrEq(round(translationY), 100);
         const p = {
@@ -104,21 +90,8 @@ export default class AppModal extends React.PureComponent {
 };
 
 AppModal.propTypes = {
-    app: {
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        views: PropTypes.string.isRequired,
-        businessTitle: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        source: PropTypes.string.isRequired,
-        videoUrl: PropTypes.string.isRequired,
-    },
-    position: {
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired,
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-    },
-    close: PropTypes.func.isRequired,
-    isIcon: PropTypes.bool.isRequired,
+    app: PropTypes.any.isRequired,
+    position: PropTypes.any.isRequired,
+    close: PropTypes.any.isRequired,
+    isIcon: PropTypes.any.isRequired,
 }

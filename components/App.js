@@ -6,7 +6,7 @@ import Animated from 'react-native-reanimated';
 
 import AppThumbnail from './AppThumbnail';
 
-const { Value, cond, eq } = Animated;
+const { cond, eq } = Animated;
 
 const { width, height } = Dimensions.get("window");
 const offset = (v = 0) => (Platform.OS === "android" ? (v + Constants.statusBarHeight) : v);
@@ -20,10 +20,10 @@ export default class App extends React.PureComponent {
 
     static propTypes() {
         return {
-            app: PropTypes.func.isRequired,
-            open: PropTypes.func.isRequired,
-            activeAppId: typeof Animated.Value,
-            isIcon: PropTypes.bool.isRequired,
+            app: PropTypes.any.isRequired,
+            open: PropTypes.any.isRequired,
+            activeAppId: PropTypes.any.isRequired,
+            isIcon: PropTypes.any.isRequired,
         }
     }
 
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
 });
 
 App.propTypes = {
-    app: PropTypes.func.isRequired,
-    open: PropTypes.func.isRequired,
-    activeAppId: typeof Animated.Value,
-    isIcon: PropTypes.bool.isRequired,
+    app: PropTypes.any.isRequired,
+    open: PropTypes.any.isRequired,
+    activeAppId: PropTypes.any.isRequired,
+    isIcon: PropTypes.any.isRequired,
 }
