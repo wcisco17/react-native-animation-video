@@ -2,7 +2,6 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import React from 'react';
 import Animated from 'react-native-reanimated';
 
 const { Value } = Animated;
