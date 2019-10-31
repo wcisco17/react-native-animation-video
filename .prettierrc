@@ -9,7 +9,7 @@
         {
             "files": ["*.js", "legacy/**/*.js"],
             "options": {
-                "tabWidth": 400
+                "tabWidth": 40
             }
         }
     ]

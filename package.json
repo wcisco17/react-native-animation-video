@@ -1,6 +1,6 @@
 {
     "name": "@wcisco17/react-native-animation-video",
-    "version": "1.0.1",
+    "version": "1.0.10",
     "description": "## Getting started",
     "main": "index.js",
     "scripts": {
@@ -19,10 +19,9 @@
         "react-native-windows": "0.41.0-rc.1"
     },
     "devDependencies": {
-        "@types/jest": "^24.0.21",
-        "@types/react": "^16.9.11",
-        "@types/react-native": "^0.60.22",
-        "@types/react-test-renderer": "^16.9.1",
+        "@babel/cli": "^7.6.4",
+        "@babel/core": "^7.6.4",
+        "@babel/preset-flow": "^7.0.0",
         "babel-jest": "^24.9.0",
         "babel-preset-react-native": "^4.0.1",
         "jest": "^24.9.0",
@@ -36,5 +35,16 @@
     "bugs": {
         "url": "https://github.com/wcisco17/react-native-animation-video/issues"
     },
-    "homepage": "https://github.com/wcisco17/react-native-animation-video#readme"
+    "homepage": "https://github.com/wcisco17/react-native-animation-video#readme",
+    "dependencies": {
+        "@expo/vector-icons": "^10.0.6",
+        "expo": "^35.0.0",
+        "expo-asset": "^7.0.0",
+        "expo-av": "^7.0.1",
+        "expo-blur": "^7.0.0",
+        "expo-constants": "^7.0.1",
+        "react-native-gesture-handler": "^1.5.0",
+        "react-native-reanimated": "^1.3.2",
+        "react-native-redash": "^8.5.0"
+    }
 }
