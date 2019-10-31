@@ -1,20 +1,18 @@
-import { stringLiteral, numericLiteral } from "@babel/types"
-
 export const AppModel = {
-    id: numericLiteral(),
-    name: stringLiteral(),
-    views: stringLiteral(),
-    businessTitle: stringLiteral(),
-    location: stringLiteral(),
-    source: stringLiteral(),
-    videoUrl: stringLiteral()
+    id: 0,
+    name: '',
+    views: '',
+    businessTitle: '',
+    location: '',
+    source: '',
+    videoUrl: '',
 }
 
 export const Apps = Array(AppModel)
 
 export const Position = {
-    x: numericLiteral(),
-    y: numericLiteral(),
-    width: numericLiteral(),
-    height: numericLiteral()
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0
 }

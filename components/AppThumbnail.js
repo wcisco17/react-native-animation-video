@@ -41,20 +41,16 @@ class AppThumbnail extends React.PureComponent {
 
         return (
             <>
-                {
-                    (Platform.OS === "ios") || (Platform.OS === "android") && (
-                        <Video
-                            source={{ uri: videoUrl }}
-                            rate={1.0}
-                            volume={1.0}
-                            resizeMode="cover"
-                            isMuted={false}
-                            shouldPlay={shouldPlay}
-                            isLooping
-                            style={[styles.image, { borderRadius: 8 }]}
-                        />
-                    )
-                }
+                <Video
+                    source={{ uri: videoUrl }}
+                    rate={1.0}
+                    volume={1.0}
+                    resizeMode="cover"
+                    isMuted={false}
+                    shouldPlay={shouldPlay}
+                    isLooping
+                    style={[styles.image, { borderRadius: 8 }]}
+                />
 
                 <View style={[styles.content, !showOverlay && {
                     borderRadius: 8,

@@ -5,8 +5,6 @@ import * as React from 'react';
 import React from 'react';
 import Animated from 'react-native-reanimated';
 
-import { Apps } from './components/Model';
-
 const { Value } = Animated;
 
 class RNAnimationVideo extends React.PureComponent {
@@ -19,12 +17,13 @@ class RNAnimationVideo extends React.PureComponent {
     static propTypes() {
         return {
             isIcon: PropTypes.bool.isRequired,
-            items: Apps,
+            items: PropTypes.array.isRequired,
         }
     }
 
     async componentDidMount() {
-        await Promise.all(apps.map(app => Asset.loadAsync(app.source)));
+        const { items } = this.props;
+        await Promise.all(items.map(app => Asset.loadAsync(app.source)));
         this.setState({ ready: true });
     }
 
@@ -82,7 +81,7 @@ class RNAnimationVideo extends React.PureComponent {
 
 RNAnimationVideo.propTypes = {
     isIcon: PropTypes.bool.isRequired,
-    items: Apps || PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
 }
 
 export default RNAnimationVideo;
