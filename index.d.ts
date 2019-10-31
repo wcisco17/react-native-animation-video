@@ -12,17 +12,13 @@ interface App {
 }
 export type Apps = App[];
 
-export interface Position {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-}
-
 interface ComponentProps extends React.Props<RNAnimationVideo> {
     items: App,
     itemsArr: Apps
     position: Position
 }
 
-export class RNAnimationVideo extends React.PureComponent<ComponentProps, {}> { }
+export class RNAnimationVideo extends React.PureComponent<ComponentProps, {}> {
+    items: Apps;
+    isIcon: boolean;
+}
