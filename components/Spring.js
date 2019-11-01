@@ -42,7 +42,7 @@ export const spring = (
     from = 0,
     to = 0,
     back = "hasSprung" || "hasSprungBack",
-) => cond(eqv[back], 0, [
+) => cond(eq[back], 0, [
     set(v.value, runSpring(v.clock, from, to, springConfig())),
     cond(eq(clockRunning(v.clock), 0), set(v[back], 1)),
 ]);

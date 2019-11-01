@@ -6,10 +6,10 @@ import { clockRunning } from 'react-native-redash';
 
 import AppThumbnail from './AppThumbnail';
 import { createValue, spring, springBack } from './Spring';
-import SpringToClose from './SpringToClose';
+import SwipeToClose from './SwipeToClose';
 
 const {
-    Value, cond, greaterThan, sub, greaterOrEq, round, add, divide, call, eq,
+    Value, cond, greaterOrEq, round, call, eq,
 } = Animated;
 export const { width: wWidth, height: wHeight } = Dimensions.get("window");
 export const { height: globalHeight } = Dimensions.get('screen');
@@ -17,27 +17,20 @@ export const { height: globalHeight } = Dimensions.get('screen');
 export default class AppModal extends React.PureComponent {
     static propTypes() {
         return {
-            app: {
-                id: PropTypes.number.isRequired,
-                name: PropTypes.string.isRequired,
-                views: PropTypes.string.isRequired,
-                businessTitle: PropTypes.string.isRequired,
-                location: PropTypes.string.isRequired,
-                source: PropTypes.string.isRequired,
-                videoUrl: PropTypes.string.isRequired,
-            },
-            position: {
-                x: PropTypes.number.isRequired,
-                y: PropTypes.number.isRequired,
-                width: PropTypes.number.isRequired,
-                height: PropTypes.number.isRequired,
-            },
-            close: PropTypes.func.isRequired,
-            isIcon: PropTypes.bool.isRequired,
+            app: PropTypes.any.isRequired,
+            position: PropTypes.any.isRequired,
+            close: PropTypes.any.isRequired,
+            isIcon: PropTypes.any.isRequired,
         }
     }
 
     render() {
+        const {
+            app,
+            position,
+            close,
+            isIcon
+        } = this.props
         const width = createValue(position.width);
         const height = createValue(position.height);
         const x = createValue(position.x);
@@ -45,28 +38,10 @@ export default class AppModal extends React.PureComponent {
         const scale = createValue(1);
         const borderRadius = createValue(8);
         const opacity = createValue(0);
-        const textOpacity = cond(greaterThan((width.value), add(position.width, divide(sub(wWidth, position.width), 2))), 1, 0);
         const translationY = new Value(0);
         const shouldClose = greaterOrEq(round(translationY), 100);
-        const p = {
-            position: "absolute",
-            width: width.value,
-            height: wHeight,
-            left: x.value,
-            top: y.value,
-            paddingTop: 45,
-            paddingBottom: 45,
-            paddingLeft: 25
-        };
-
-        const {
-            app,
-            position,
-            close,
-            isIcon
-        } = this.props
         return (
-            <SpringToClose y={(translationY)} opacity={opacity.value} {...{ scale }}>
+            <SwipeToClose y={translationY} opacity={opacity.value} {...{ scale }}>
                 <Animated.Code>
                     {
                         () => cond(shouldClose,
@@ -89,7 +64,12 @@ export default class AppModal extends React.PureComponent {
                             ])
                     }
                 </Animated.Code>
-                <Animated.View style={{ ...p, height: wHeight, }}>
+                <Animated.View style={{
+                    height: wHeight,
+                    paddingTop: 45,
+                    paddingBottom: 45,
+                    paddingLeft: 25
+                }}>
                     <AppThumbnail
                         borderRadius={borderRadius.value}
                         {...{ app }}
@@ -98,27 +78,14 @@ export default class AppModal extends React.PureComponent {
                         isIcon={isIcon}
                     />
                 </Animated.View>
-            </SpringToClose>
+            </SwipeToClose>
         );
     }
 };
 
 AppModal.propTypes = {
-    app: {
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        views: PropTypes.string.isRequired,
-        businessTitle: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        source: PropTypes.string.isRequired,
-        videoUrl: PropTypes.string.isRequired,
-    },
-    position: {
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired,
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-    },
-    close: PropTypes.func.isRequired,
-    isIcon: PropTypes.bool.isRequired,
+    app: PropTypes.any.isRequired,
+    position: PropTypes.any.isRequired,
+    close: PropTypes.any.isRequired,
+    isIcon: PropTypes.any.isRequired,
 }

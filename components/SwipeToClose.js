@@ -5,18 +5,16 @@ import { StatusBar, StyleSheet, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { clockRunning, Interactable } from 'react-native-redash';
 
-import { SpringValue } from './Spring';
-
 const {
     Value, interpolate, Extrapolate, cond, and, eq, or,
 } = Animated;
 
-export default class SpringToClose extends React.PureComponent {
+export default class SwipeToClose extends React.PureComponent {
     static propTypes() {
         return {
-            y: typeof Value,
-            opacity: typeof Value,
-            scale: SpringValue,
+            y: PropTypes.any.isRequired,
+            opacity: PropTypes.any.isRequired,
+            scale: PropTypes.any.isRequired,
             children: PropTypes.any.isRequired,
         }
     }
@@ -63,9 +61,9 @@ export default class SpringToClose extends React.PureComponent {
     }
 };
 
-SpringToClose.propTypes = {
-    y: typeof Value,
-    opacity: typeof Value,
-    scale: SpringValue,
+SwipeToClose.propTypes = {
+    y: PropTypes.any.isRequired,
+    opacity: PropTypes.any.isRequired,
+    scale: PropTypes.any.isRequired,
     children: PropTypes.any
 }

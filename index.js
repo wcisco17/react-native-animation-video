@@ -7,16 +7,12 @@ import Animated from 'react-native-reanimated';
 
 import App from './components/App';
 import AppModal from './components/AppModal';
+import { Position } from './components/Model';
 
 const { Value } = Animated;
 
 class RNAnimationVideo extends React.PureComponent {
-    static activeAppId = new Value(-1);
-    state = {
-        ready: false,
-        modal: null,
-    };
-
+    activeAppId = new Value(-1);
     static propTypes() {
         return {
             isIcon: PropTypes.bool.isRequired,
@@ -24,13 +20,19 @@ class RNAnimationVideo extends React.PureComponent {
         }
     }
 
+    state = {
+        ready: false,
+        modal: null,
+    };
+
+
     async componentDidMount() {
         const { items } = this.props;
         await Promise.all(items.map(app => Asset.loadAsync(app.source)));
         this.setState({ ready: true });
     }
 
-    open = (app, position) => {
+    open = (app, position = Position) => {
         this.activeAppId.setValue(app.id);
         this.setState({
             modal: {
