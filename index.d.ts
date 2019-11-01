@@ -19,10 +19,13 @@ declare module "@wcisco17/react-native-animation-video" {
         height: number;
     }
 
-    interface RootAppProps {
+    export interface RootAppProps {
         isIcon: boolean;
-        items: RNAnimation | any[];
+        items: RNAnimation;
     }
 
-    export class RNAnimationVideo extends React.Component<RootAppProps, any> { }
+    export default class RNAnimationVideo extends React.Component<RootAppProps, any> {
+        open: (app: RNAnimationProps, position: Position) => void;
+        close: () => void;
+    }
 }
