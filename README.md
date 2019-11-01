@@ -1,4 +1,4 @@
-# UNDER CONSTRUCTION PLEASE CHECK BACK LATER
+# VERSION 1.1.3
 
 # react-native-animation-video
 
@@ -6,8 +6,65 @@
 
 `$ npm install @wcisco17/react-native-animation-video --save`
 
-### Manual installation
+## Usage Example with Typescript
+```tsx
+import RNAnimationVideo, { RNAnimation } from '@wcisco17/react-native-animation-video';
+import * as React from 'react';
 
+const apps: RNAnimation = [
+  {
+    id: 0,
+    name: "John Doe",
+    views: "1,000",
+    source: require("./assets/fitness.jpg"),
+    businessTitle: "Cafe Lapin",
+    location: 'Mars',
+    videoUrl: 'https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4',
+  },
+];
+
+const App: React.FC = () => {
+  return (
+    <RNAnimationVideo
+      items={apps}
+      isIcon
+    />
+  );
+};
+
+export default App;
+```
+
+## Usage Example with normal JSX
+```jsx
+import RNAnimationVideo from '@wcisco17/react-native-animation-video';
+import React from 'react';
+
+const apps = [
+  {
+    id: 0,
+    name: "John Doe",
+    views: "1,000",
+    source: require("./assets/fitness.jpg"),
+    businessTitle: "Cafe Lapin",
+    location: 'Mars',
+    videoUrl: 'https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4',
+  },
+];
+
+const App = () => {
+  return (
+    <RNAnimationVideo
+      items={apps}
+      isIcon
+    />
+  );
+};
+
+export default App;
+```
+
+### Manual installation
 
 #### iOS
 
@@ -30,21 +87,3 @@
   	```
       compile project(':react-native-animation-video')
   	```
-
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNAnimationVideo.sln` in `node_modules/react-native-animation-video/windows/RNAnimationVideo.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Animation.Video.RNAnimationVideo;` to the usings at the top of the file
-  - Add `new RNAnimationVideoPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
-## Usage
-```javascript
-import RNAnimationVideo from 'react-native-animation-video';
-
-// TODO: What to do with the module?
-RNAnimationVideo;
-```
-  
