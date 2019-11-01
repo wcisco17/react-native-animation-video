@@ -1,6 +1,12 @@
 # VERSION 1.1.3
 
 # react-native-animation-video
+<p>
+  React Native Animation is a transition Component rendering a video content when the Modal Expands.
+</p>
+
+## Video link of the component below 
+https://storage.cloud.google.com/github-video/react-animation-video.mov
 
 ## Getting started
 
