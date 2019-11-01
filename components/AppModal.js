@@ -9,7 +9,7 @@ import { createValue, spring, springBack } from './Spring';
 import SwipeToClose from './SwipeToClose';
 
 const {
-    Value, cond, greaterThan, sub, greaterOrEq, round, add, divide, call, eq,
+    Value, cond, greaterOrEq, round, call, eq,
 } = Animated;
 export const { width: wWidth, height: wHeight } = Dimensions.get("window");
 export const { height: globalHeight } = Dimensions.get('screen');
@@ -18,7 +18,7 @@ export default class AppModal extends React.PureComponent {
     static propTypes() {
         return {
             app: PropTypes.any.isRequired,
-            position: PropTypes.func.isRequired,
+            position: PropTypes.any.isRequired,
             close: PropTypes.any.isRequired,
             isIcon: PropTypes.any.isRequired,
         }
@@ -31,7 +31,6 @@ export default class AppModal extends React.PureComponent {
             close,
             isIcon
         } = this.props
-
         const width = createValue(position.width);
         const height = createValue(position.height);
         const x = createValue(position.x);
@@ -41,18 +40,8 @@ export default class AppModal extends React.PureComponent {
         const opacity = createValue(0);
         const translationY = new Value(0);
         const shouldClose = greaterOrEq(round(translationY), 100);
-        const p = {
-            position: "absolute",
-            width: width.value,
-            height: wHeight,
-            left: x.value,
-            top: y.value,
-            paddingTop: 45,
-            paddingBottom: 45,
-            paddingLeft: 25
-        };
         return (
-            <SwipeToClose y={(translationY)} opacity={opacity.value} {...{ scale }}>
+            <SwipeToClose y={translationY} opacity={opacity.value} {...{ scale }}>
                 <Animated.Code>
                     {
                         () => cond(shouldClose,
@@ -75,7 +64,12 @@ export default class AppModal extends React.PureComponent {
                             ])
                     }
                 </Animated.Code>
-                <Animated.View style={{ ...p, height: wHeight, }}>
+                <Animated.View style={{
+                    height: wHeight,
+                    paddingTop: 45,
+                    paddingBottom: 45,
+                    paddingLeft: 25
+                }}>
                     <AppThumbnail
                         borderRadius={borderRadius.value}
                         {...{ app }}
@@ -91,7 +85,7 @@ export default class AppModal extends React.PureComponent {
 
 AppModal.propTypes = {
     app: PropTypes.any.isRequired,
-    position: PropTypes.func.isRequired,
+    position: PropTypes.any.isRequired,
     close: PropTypes.any.isRequired,
     isIcon: PropTypes.any.isRequired,
 }

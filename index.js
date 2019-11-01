@@ -7,6 +7,7 @@ import Animated from 'react-native-reanimated';
 
 import App from './components/App';
 import AppModal from './components/AppModal';
+import { Position } from './components/Model';
 
 const { Value } = Animated;
 
@@ -31,7 +32,7 @@ class RNAnimationVideo extends React.PureComponent {
         this.setState({ ready: true });
     }
 
-    open = (app, position) => {
+    open = (app, position = Position) => {
         this.activeAppId.setValue(app.id);
         this.setState({
             modal: {
